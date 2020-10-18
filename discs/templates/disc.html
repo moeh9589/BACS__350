@@ -8,21 +8,37 @@
 </head>
 
 <body class='text-center'>
-<div class='container'>
-    <h1><a href='home'>GO HOME</a></h1>
+    <div class='container-fluid'>
+        <h1><a href='home'>GO HOME</a></h1>
+    
+        <h2>List of discs</h2>
+        <p class="text-center"><a href="/addhero/"> Add a Hero!</a></p>
+        <div class="container-fluid">
+            <table class="table table" border-width=thick;>
 
-    <h2>List of discs</h2>
-    
-    {% for h in discs %}
-        <h2>{{ h.name }}</h2>
-        <p>Brand: <b>{{ h.brand }}</b></p>
-    
-        <p>Name: <b>{{ h.name }}</b></p>
-    <img src="../discapp/static/images/{{ h.image }}.jpg" alt="{{ h }}" height="200px">
-    <div><a href='/editdisc/'>Edit</a></div>
-    {% endfor %}
-    
-</div>
+                <tbody>
+
+                    {% for h in discs %}
+                    <tr>
+                        <td>
+                            <h2>{{ h.name }}</h2>
+                            <p>Brand: <b>{{ h.brand }}</b></p>
+                            <p>Name: <b>{{ h.name }}</b></p>
+                        </td>
+                        <td>
+                            <img src="../discs/static/images/{{ h.image }}" alt="{{ h }}" height="200px">
+                        </td>
+                        <td>
+                            <div><p class="text-center"><a href="/disc_delete/"> Delete </a></p></div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </body>
 
 </html>
