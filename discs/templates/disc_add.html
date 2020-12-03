@@ -1,7 +1,13 @@
+{% extends 'workshop.html' %}
+
+
 {% block content %}
-    <h1>New Disc</h1>
-    <form action="" method="post">{% csrf_token %}
+{% block main%}
+<h1 class="text-dark"> sds</h1>
+    <h1 class="text-center">New Disc</h1>
+    <form action="" method="post" class="text-center">{% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Save">
+      <input type="submit" value="Save" class="bg-success">
     </form>
+{% endblock main %}
 {% endblock content %}

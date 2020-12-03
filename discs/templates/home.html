@@ -1,20 +1,25 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-
+{% extends 'theme.html' %}
 <body>
+    {% block header%}
     <div>
-    <h1>{{ title }}</h1>
-    <p> <a href="disc">Discs</a> </p>
+        <h1 class="bg-success text-success height=100px"> h</h1>
     </div>
-
+    <div>
+        <h1 class="text-center bg-dark text-primary">{{ title }}</h1>
+         {% endblock header%}
+        {%  block main %}
+        <p class="text-center bg-dark text-primary"> <a href="disc">Click here to view some discs</a> </p>
+    </div>
+   
+    <div>
+        <h1 class="bg-success text-success height=100px"> h</h1>
+    </div>
+{% endblock main%}
 
 </body>
 
-</html>
+<footer>
+<p class="text-center"> Justin Moehlenpah (2020) BACS350 Intermediate Web Development</p>    
+</footer>
+
+

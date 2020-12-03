@@ -1,35 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'theme.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Discs</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
+
 
 <body class='text-center'>
+    {% block header%}
     <div class='container-fluid'>
-        <h1><a href='home'>GO HOME</a></h1>
-    
-        <h2>List of discs</h2>
-        <p class="text-center"><a href="/adddisc/"> Add a Disc!</a></p>
-        <div class="container-fluid">
+        <h1 class="bg-dark text-center"><a href='home'>GO HOME</a></h1>
+        <h2 class="text-center">Other view layouts</h2>
+        
+
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-lg-4 bg-success ">
+                    <p> <a  class="text-dark" href="card">Card View </a></p>
+                </div>
+                <div class="col-lg-4 bg-success">
+                    <p> <a class="text-dark" href="accordion">Accordion View </a></p>
+                </div>
+                <div class="col-lg-4 bg-success">
+                    <p> <a class="text-dark" href="tab">Tab View </a></p>
+                </div>
+            </div>
+        </div>
+        {% endblock header%}
+        
+        
+        {% block main %}
+        <h2 class="text-center ">List of discs</h2>
+        <p class="text-center "><a class="bg-success text-dark" href="/addhero/"> Add a Disc! </a></p>
+        <div class="container-fluid ">
             <table class="table table" border-width=thick;>
 
                 <tbody>
 
                     {% for h in discs %}
                     <tr>
-                        <td>
-                            <h2>{{ h.name }}</h2>
-                            <p>Brand: <b>{{ h.brand }}</b></p>
-                            <p>Name: <b>{{ h.name }}</b></p>
+                        <td class="text-center">
+                            <h2 class="text-light ">{{ h.name }}</h2>
+                            <p class='text-success'>Brand: <b>{{ h.brand }}</b></p>
+                            <p class="text-primary">Name: <b>{{ h.name }}</b></p>
                         </td>
                         <td>
-                            <img src="../discs/static/images/{{ h.image }}" alt="{{ h }}" height="200px">
+<!--                            <img src="../discs/static/images/{{ h.image }}" alt="{{ h }}" height="200px">-->
                         </td>
                         <td>
-                            <div><p class="text-center"><a href="/disc_delete/"> Delete </a></p></div>
+                            <div>
+                                <p class="text-left text-warning">
+                                    <a  href="{% url 'disc_delete' h.pk %}">
+                                        Delete Disc
+                                    </a>
+                                </p>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}
@@ -37,8 +58,14 @@
                 </tbody>
             </table>
         </div>
+        {% endblock main%}
+
 
     </div>
 </body>
+    
+
 
 </html>
+
+

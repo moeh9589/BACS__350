@@ -1,0 +1,29 @@
+{% extends 'theme.html' %}
+<body>
+     {% block header%}
+    <h1 class="text-center bg-primary text-dark"> Disc Card View</h1>
+    <p class="text-center bg-primary text-dark">
+       <b>This page is to present discs in card views</b> 
+    </p>
+    <h1 class="text-center"><a href='home'>GO HOME</a></h1>
+    {% endblock header%}
+    {% block main %}
+    {% for card in cards %}
+                
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header bg-success text-light">
+                <h2>{{ card.title }}</h2>
+            </div>
+            <div class="card-body text-dark">
+                <p>{{ card.body }}</p>
+            </div>
+            <div>
+                <p> <img src={{ card.image }}></p>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+    {% endblock main%}
+</body>
